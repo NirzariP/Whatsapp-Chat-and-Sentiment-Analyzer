@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-title">Data Analysis App</div>
+    </nav>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- WhatsApp Chat Analysis -->
+        <div class="card">
+            <img src="{{ url_for('static', filename='images/whatsapp.jpg') }}" alt="WhatsApp Chat Analysis">
+            <h2>WhatsApp Chat Analysis</h2>
+            <a href="{{ url_for('upload_file') }}" class="btn">Go to Analysis</a>
+        </div>
+
+        <!-- Sentiment Analysis -->
+        <div class="card">
+            <img src="{{ url_for('static', filename='images/sentiment.jpg') }}" alt="Sentiment Analysis">
+            <h2>Sentiment Analysis</h2>
+            <a href="#" class="btn">Go to Analysis</a>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+</body>
+</html>

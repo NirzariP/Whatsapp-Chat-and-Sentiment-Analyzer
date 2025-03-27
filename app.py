@@ -2,16 +2,20 @@ from flask import Flask, render_template, request, jsonify
 from preprocessor import preprocess
 from helper import fetch_stats, most_busy_users, create_wordcloud, most_common_words, emoji_count, monthly_timeline
 import matplotlib
-matplotlib.use('Agg')  # Set the backend before importing pyplot
+matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 from io import BytesIO
 import base64
 
 
 app = Flask(__name__)
-dataframe = None  # Initialize the global variable
+dataframe = None
 
-@app.route('/', methods=['GET', 'POST'])
+@app.route('/')
+def home():
+    return render_template('home.html')
+
+@app.route('/upload', methods=['GET', 'POST'])
 def upload_file():
     global dataframe
     user_list = []

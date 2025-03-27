@@ -1,73 +1,62 @@
-<!DOCTYPE html>
-<html>
+{% extends "base.html" %}
+{% block title %}Upload File{% endblock %}
+{% block content %}
 
-<head>
-    <title>Upload File</title>
-    <!-- CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-</head>
+<div class="layout">
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <h4>Upload a File</h4>
+        <form method="post" enctype="multipart/form-data" action="{{ url_for('upload_file') }}">
+            <div class="form-group">
+                <label for="file">Choose a file:</label>
+                <input type="file" id="file" name="file">
+            </div>
+            <input type="submit" value="Upload" class="btn">
+        </form>
 
-<body>
-    <div class="container-fluid">
-        <div class="row">
-            <!-- Side Bar -->
-            <nav class="col-md-2 d-none d-md-block bg-light sidebar">
-                <div class="sidebar-sticky">
-                    <h4>Upload a File</h4>
-                    <form method="post" enctype="multipart/form-data" action="/">
-                        <div class="form-group">
-                            <label for="file">Choose a file:</label>
-                            <input type="file" id="file" name="file" class="form-control-file">
-                        </div>
-                        <input type="submit" value="Upload" class="btn btn-primary">
-                    </form>
-                    {% if show_analysis %}
-                    <hr>
-                    <h4>Unique Users</h4>
-                    <div class="form-group">
-                        <select id="userDropdown" name="userDropdown" class="form-control" onchange="updateSelectedUser()">
-                            {% for user in user_list %}
-                            <option value="{{ user }}">{{ user }}</option>
-                            {% endfor %}
-                        </select>
-                        <input type="hidden" id="selected_user" name="selected_user">
-                    </div>
-                    <hr>
-                    <button id="showAnalysisBtn" class="btn btn-primary">Show Analysis</button>
-                    {% endif %}
-                </div>
-            </nav>
-            <!-- Result Container -->
-            <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
-                <div class="mt-5">
-                    <div id="resultContainer" class="row mt-3">
-                        <div class="col-sm-3">
-                            <h4>Total Messages</h4>
-                            <p id="totalMessages"></p>
-                        </div>
-                        <div class="col-sm-3">
-                            <h4>Total Words</h4>
-                            <p id="totalWords"></p>
-                        </div>
-                        <div class="col-sm-3">
-                            <h4>Media Shared</h4>
-                            <p id="mediaShared"></p>
-                        </div>
-                        <div class="col-sm-3">
-                            <h4>Links Shared</h4>
-                            <p id="totalLinks"></p>
-                        </div>
-                    </div>
-                </div>
-            </main>              
+        {% if show_analysis %}
+        <hr>
+        <h4>Unique Users</h4>
+        <div class="form-group">
+            <select id="userDropdown" name="userDropdown" onchange="updateSelectedUser()">
+                {% for user in user_list %}
+                <option value="{{ user }}">{{ user }}</option>
+                {% endfor %}
+            </select>
+            <input type="hidden" id="selected_user" name="selected_user">
+        </div>
+        <hr>
+        <button id="showAnalysisBtn" class="btn">Show Analysis</button>
+        {% endif %}
+    </div>
+
+    <!-- Result Container -->
+    <div class="content">
+        <h3>Analysis Results</h3>
+        <div class="stats">
+            <div>
+                <h4>Total Messages</h4>
+                <p id="totalMessages"></p>
+            </div>
+            <div>
+                <h4>Total Words</h4>
+                <p id="totalWords"></p>
+            </div>
+            <div>
+                <h4>Media Shared</h4>
+                <p id="mediaShared"></p>
+            </div>
+            <div>
+                <h4>Links Shared</h4>
+                <p id="totalLinks"></p>
+            </div>
         </div>
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <!-- Java Script -->
-    <script src="{{ url_for('static', filename='upload.js') }}"></script>
-</body>
+    <div id="resultContainer"></div>
 
-</html>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="{{ url_for('static', filename='js/upload.js') }}"></script>
+{% endblock %}
