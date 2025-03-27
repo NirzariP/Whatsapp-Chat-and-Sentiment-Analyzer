@@ -11,7 +11,7 @@
 <body>
     <!-- Navbar -->
     <nav class="navbar">
-        <div class="nav-title">Data Analysis App</div>
+        <div class="nav-title">Whatsapp Chat Analyzer</div>
     </nav>
 
     <!-- Main Container -->
@@ -27,7 +27,7 @@
         <div class="card">
             <img src="{{ url_for('static', filename='images/sentiment.jpg') }}" alt="Sentiment Analysis">
             <h2>Sentiment Analysis</h2>
-            <a href="#" class="btn">Go to Analysis</a>
+            <a href="{{ url_for('sentiment_analysis_file') }}" class="btn">Go to Analysis</a>
         </div>
     </div>
 

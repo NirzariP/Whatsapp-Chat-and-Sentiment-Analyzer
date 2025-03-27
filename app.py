@@ -15,6 +15,7 @@ dataframe = None
 def home():
     return render_template('home.html')
 
+# Whatsapp Chat Data Analysis
 @app.route('/upload', methods=['GET', 'POST'])
 def upload_file():
     global dataframe
@@ -122,6 +123,11 @@ def month_timeline():
     image_timeline = base64.b64encode(buffer.getvalue()).decode('utf-8')
     plt.close(fig)
     return jsonify(image_timeline=image_timeline)
+
+# Whatsapp Chat Sentiment Analysis
+@app.route('/sentiment', methods=['GET', 'POST'])
+def sentiment_analysis_file():
+    return render_template('sentiment.html')
 
 if __name__ == '__main__':
     app.run(debug=True)

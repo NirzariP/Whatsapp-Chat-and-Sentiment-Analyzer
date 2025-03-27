@@ -31,30 +31,49 @@
     </div>
 
     <!-- Result Container -->
-    <div class="content">
-        <h3>Analysis Results</h3>
-        <div class="stats">
-            <div>
-                <h4>Total Messages</h4>
-                <p id="totalMessages"></p>
-            </div>
-            <div>
-                <h4>Total Words</h4>
-                <p id="totalWords"></p>
-            </div>
-            <div>
-                <h4>Media Shared</h4>
-                <p id="mediaShared"></p>
-            </div>
-            <div>
-                <h4>Links Shared</h4>
-                <p id="totalLinks"></p>
+     <div class="result">
+        <div class="content">
+            <h3>Analysis Results</h3>
+            <div class="stats">
+                <div>
+                    <h4>Total Messages</h4>
+                    <p id="totalMessages"></p>
+                </div>
+                <div>
+                    <h4>Total Words</h4>
+                    <p id="totalWords"></p>
+                </div>
+                <div>
+                    <h4>Media Shared</h4>
+                    <p id="mediaShared"></p>
+                </div>
+                <div>
+                    <h4>Links Shared</h4>
+                    <p id="totalLinks"></p>
+                </div>
             </div>
         </div>
-    </div>
-
-    <div id="resultContainer"></div>
-
+        <div class="result-content">
+            <h4>Most Busy Users</h4>
+            <div id="mostBusyUsersContainer" class="result-section"></div>
+        </div>
+        <div class="result-content">
+            <h4>Most Common Words</h4>
+            <div id="mostCommonWordsContainer" class="result-section"></div>
+        </div>
+        <div class="result-content">
+            <h4>Word Cloud</h4>
+            <div id="wordCloudContainer" class="result-section"></div>
+        </div>
+        <div class="result-content">
+            <h4>Emoji graph</h4>
+            <div id="emojiGraphContainer" class="result-section"></div>
+        </div>
+        <div class="result-content">
+            <h4>Timeline Graph</h4>
+            <div id="timelineGraphContainer" class="result-section"></div>
+        </div>
+     </div>
 </div>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

@@ -47,7 +47,9 @@ $(document).ready(function() {
                         var graphContainer = document.createElement("div");
                         graphContainer.className = "col-sm-6";
                         graphContainer.appendChild(img_mostbusyusers);
-                        document.getElementById("resultContainer").appendChild(graphContainer);
+                        // document.getElementById("resultContainer").appendChild(graphContainer);
+                        document.getElementById("mostBusyUsersContainer").innerHTML = ""; // Clear old content
+                        document.getElementById("mostBusyUsersContainer").appendChild(img_mostbusyusers);
 
                         var yData = data.y;
                         var yContainer = document.createElement("div");
@@ -67,7 +69,9 @@ $(document).ready(function() {
                             tableBody.appendChild(tr);
                         });
                         yContainer.appendChild(yTable);
-                        document.getElementById("resultContainer").appendChild(yContainer);
+                        // document.getElementById("resultContainer").appendChild(yContainer);
+                        document.getElementById("mostBusyUsersContainer").innerHTML = ""; // Clear old content
+                        document.getElementById("mostBusyUsersContainer").appendChild(yContainer);
                     } else {
                         alert(data.message);
                     }
@@ -112,8 +116,9 @@ $(document).ready(function() {
                     mostCommonTableBody.appendChild(tr);
                 });
                 mostCommonContainer.appendChild(mostCommonTable);
-                document.getElementById("resultContainer").appendChild(mostCommonContainer);
-
+                // document.getElementById("resultContainer").appendChild(mostCommonContainer);
+                document.getElementById("mostCommonWordsContainer").innerHTML = ""; // Clear old content
+                document.getElementById("mostCommonWordsContainer").appendChild(mostCommonTable);
 
 
                 // Word Cloud
@@ -137,7 +142,9 @@ $(document).ready(function() {
                         var wordCloudContainer = document.createElement("div");
                         wordCloudContainer.className = "col-sm-12";
                         wordCloudContainer.appendChild(img_wordcloud);
-                        document.getElementById("resultContainer").appendChild(wordCloudContainer);
+                        // document.getElementById("resultContainer").appendChild(wordCloudContainer);
+                        document.getElementById("wordCloudContainer").innerHTML = ""; // Clear old content
+                        document.getElementById("wordCloudContainer").appendChild(img_wordcloud);
                     } else {
                         alert(data.message);
                     }
@@ -171,7 +178,9 @@ $(document).ready(function() {
                         var emojiGraphContainer = document.createElement("div");
                         emojiGraphContainer.className = "col-sm-12";
                         emojiGraphContainer.appendChild(img_emoji);
-                        document.getElementById("resultContainer").appendChild(emojiGraphContainer);
+                        // document.getElementById("resultContainer").appendChild(emojiGraphContainer);
+                        document.getElementById("emojiGraphContainer").innerHTML = ""; // Clear old content
+                        document.getElementById("emojiGraphContainer").appendChild(img_emoji);
                     } else {
                         alert(data.message);
                     }
@@ -204,7 +213,9 @@ $(document).ready(function() {
                         var timelineGraphContainer = document.createElement("div");
                         timelineGraphContainer.className = "col-sm-12";
                         timelineGraphContainer.appendChild(img_timeline);
-                        document.getElementById("resultContainer").appendChild(timelineGraphContainer);
+                        // document.getElementById("resultContainer").appendChild(timelineGraphContainer);
+                        document.getElementById("timelineGraphContainer").innerHTML = ""; // Clear old content
+                        document.getElementById("timelineGraphContainer").appendChild(img_timeline);
                     } else {
                         alert(data.message);
                     }
@@ -233,3 +244,13 @@ $(document).ready(function() {
     });
 });
 
+
+// Result Container Only visible after clicking showAnalysisBtn Button
+document.addEventListener("DOMContentLoaded", function () {
+    const showAnalysisBtn = document.getElementById("showAnalysisBtn");
+    const resultContainer = document.querySelector(".result");
+
+    showAnalysisBtn.addEventListener("click", function () {
+        resultContainer.style.display = "flex"; // Show the result container
+    });
+});

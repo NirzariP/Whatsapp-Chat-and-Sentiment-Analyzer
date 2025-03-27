@@ -11,6 +11,10 @@ body {
     padding: 10px;
     display: flex;
     align-items: center;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
 }
 .navbar a {
     color: white;
@@ -22,5 +26,5 @@ body {
     background-color: #555;
 }
 .container {
-    padding: 20px;
+    padding: 70px 20px;
 }

@@ -1,13 +1,40 @@
 .layout {
     display: flex;
 }
+.result {
+    display: none; /* Initially hidden */
+    flex-direction: column;
+    gap: 20px;
+    padding-left: 500px;
+    align-items: center;
+}
+.content, 
+#mostBusyUsersContainer, 
+#mostCommonWordsContainer, 
+#wordCloudContainer, 
+#emojiGraphContainer, 
+#timelineGraphContainer {
+    color: black;
+    width: 100%;
+}
+#mostBusyUsersContainer, 
+#mostCommonWordsContainer{
+    padding: 10px;
+    border-radius: 10px;
+    border: none;;
+    background-color: #e3e3e3;
+}
 
 /* Sidebar Styles */
 .sidebar {
+    position: fixed;
+    left: 0;
+    top: 50px;
     width: 250px;
-    background-color: #f4f4f4;
+    background-color: transparent;
     padding: 15px;
     height: 100vh;
+    overflow-y: auto;
 }
 .sidebar h4 {
     margin-bottom: 10px;
@@ -16,14 +43,14 @@
     margin-bottom: 15px;
 }
 .btn {
-    background-color: #007bff;
+    background-color: #828282;
     color: white;
     border: none;
     padding: 8px 12px;
     cursor: pointer;
 }
 .btn:hover {
-    background-color: #0056b3;
+    background-color: #333;
 }
 
 /* Content Styles */
