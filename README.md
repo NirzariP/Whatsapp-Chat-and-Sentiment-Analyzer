@@ -45,7 +45,7 @@ Visualize:
 1. Clone the project
 
 ```bash
-git clone https://github.com/yourusername/whatsapp-chat-analyzer.git
+git https://github.com/NirzariP/Whatsapp-Chat-and-Sentiment-Analyzer.git
 ```
 
 2. Go to the project directory
