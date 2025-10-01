@@ -2,30 +2,29 @@
     display: flex;
 }
 .result {
-    display: none;
+    flex: 1;
+    display: flex; 
     flex-direction: column;
     gap: 20px;
-    padding-left: 500px;
-    align-items: center;
+    margin-left: 270px;
+    padding: 20px;
+    align-items: flex-start;
 }
 .content, 
-#mostBusyUsersContainer, 
-#mostCommonWordsContainer, 
-#wordCloudContainer, 
-#emojiGraphContainer, 
-#timelineGraphContainer {
+#sentimentTimeContainer, 
+#sentimentUserContainer, 
+#wordCloudContainer {
     color: black;
     width: 100%;
 }
-#mostBusyUsersContainer, 
-#mostCommonWordsContainer{
-    padding: 10px;
-    border-radius: 10px;
-    border: none;;
-    background-color: #e3e3e3;
+.result img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 10px 0;
 }
 
-/* Sidebar Styles */
+/* Sidebar */
 .sidebar {
     position: fixed;
     left: 0;
@@ -53,18 +52,8 @@
     background-color: #333;
 }
 
-/* Content Styles */
+/* Content inside result */
 .content {
     flex-grow: 1;
     padding: 20px;
-}
-.stats {
-    display: flex;
-    gap: 20px;
-}
-.stats div {
-    background-color: #e3e3e3;
-    padding: 15px;
-    border-radius: 5px;
-    text-align: center;
 }

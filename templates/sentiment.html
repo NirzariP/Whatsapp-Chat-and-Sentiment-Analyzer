@@ -26,10 +26,36 @@
             <input type="hidden" id="selected_user" name="selected_user">
         </div>
         <hr>
-        <button id="showAnalysisBtn" class="btn">Show Analysis</button>
+        <button id="analyzeSentimentBtn" class="btn">Analyze Sentiment</button>
         {% endif %}
     </div>
+    
+    <!-- Result Container for Sentiment Analysis -->
+    <div class="result">
+        <div class="content">
+            <h3>Sentiment Analysis Results</h3>
 
-<!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="{{ url_for('static', filename='js/sentiment.js') }}"></script> -->
+            <!-- Mood Timeline -->
+            <div class="result-content">
+                <h4>Mood Over Time</h4>
+                <div id="sentimentTimeContainer" class="result-section"></div>
+            </div>
+
+            <!-- User Sentiment Trend -->
+            <div class="result-content">
+                <h4>User-Specific Sentiment Trend</h4>
+                <div id="sentimentUserContainer" class="result-section"></div>
+            </div>
+
+            <!-- Word Cloud for Sentiments -->
+            <div class="result-content">
+                <h4>Sentiment Word Cloud</h4>
+                <div id="wordCloudContainer" class="result-section"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="{{ url_for('static', filename='js/sentiment.js') }}"></script>
 {% endblock %}

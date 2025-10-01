@@ -1,11 +1,13 @@
 from flask import Flask, render_template, request, jsonify
 from preprocessor import preprocess
 from helper import fetch_stats, most_busy_users, create_wordcloud, most_common_words, emoji_count, monthly_timeline
+from sentiment import time_based_sentiment, user_sentiment_trends, generate_pos_neg_wordclouds
 import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 from io import BytesIO
 import base64
+import pandas as pd
 
 
 app = Flask(__name__)
@@ -124,10 +126,109 @@ def month_timeline():
     plt.close(fig)
     return jsonify(image_timeline=image_timeline)
 
+
+
+
+
 # Whatsapp Chat Sentiment Analysis
 @app.route('/sentiment', methods=['GET', 'POST'])
 def sentiment_analysis_file():
-    return render_template('sentiment.html')
+    global dataframe
+    user_list = []
+    show_analysis = False
+
+    if request.method == 'POST':
+        file = request.files['file']
+        if file:
+            file_contents = file.read().decode('utf-8')
+            dataframe = preprocess(file_contents)
+            # Add Sentiment Scoring Here
+            import nltk
+            from nltk.sentiment import SentimentIntensityAnalyzer
+            nltk.download('vader_lexicon')
+            sia = SentimentIntensityAnalyzer()
+            # Apply sentiment analysis
+            dataframe = dataframe[dataframe["user"] != "group notification"].dropna()
+            dataframe["Sentiment Score"] = dataframe["message"].apply(lambda msg: sia.polarity_scores(str(msg))["compound"])
+            dataframe["Sentiment"] = dataframe["Sentiment Score"].apply(lambda s: "Positive" if s > 0 else "Negative" if s < 0 else "Neutral")
+            dataframe["date"] = pd.to_datetime(dataframe["date"])  # Date Format
+            # Continue as before
+            user_list = dataframe['user'].unique().tolist()
+            user_list.sort()
+            user_list.insert(0, "Overall")
+            show_analysis = True
+    dataframe_dict = dataframe.to_dict(orient='records') if dataframe is not None else None
+    return render_template('sentiment.html', dataframe=dataframe_dict, user_list=user_list, show_analysis=show_analysis)
+
+
+@app.route('/sentiment_trend_time', methods=['POST'])
+def sentiment_over_time_route():
+    global dataframe
+    selected_user = request.json.get("selected_user")
+    try:
+        img_data = time_based_sentiment(dataframe, selected_user)
+        return jsonify({'image_sentiment_time': img_data})
+    except Exception as e:
+        print("Error in sentiment_trend_time:", e)
+        return jsonify({'error': str(e)}), 500
+
+
+@app.route('/sentiment_trend_user', methods=['POST'])
+def user_sentiment_trends_route():
+    global dataframe
+    selected_user = request.json.get("selected_user")
+    try:
+        img_data = user_sentiment_trends(dataframe, selected_user)
+        return jsonify({'image_sentiment_user': img_data})
+    except Exception as e:
+        print("Error in sentiment_trend_user:", e)
+        return jsonify({'error': str(e)}), 500
+
+
+@app.route('/sentiment_wordcloud', methods=['POST'])
+def sentiment_wordclouds_route():
+    try:
+        global dataframe
+        print(">> Route hit: /sentiment_wordcloud")
+        print(">> Request JSON:", request.json)
+
+        selected_user = request.json.get('selected_user')
+        print(">> Selected user:", selected_user)
+
+        img_pos, img_neg = generate_pos_neg_wordclouds(dataframe, selected_user)
+
+        # Positive wordcloud
+        fig1, ax1 = plt.subplots()
+        ax1.imshow(img_pos)
+        ax1.axis('off')
+        buffer = BytesIO()
+        plt.savefig(buffer, format='png')
+        buffer.seek(0)
+        pos_image_wordcloud = base64.b64encode(buffer.getvalue()).decode('utf-8')
+        plt.close(fig1)
+
+        # Negative wordcloud
+        fig2, ax2 = plt.subplots()
+        ax2.imshow(img_neg)
+        ax2.axis('off')
+        buffer = BytesIO()
+        plt.savefig(buffer, format='png')
+        buffer.seek(0)
+        neg_image_wordcloud = base64.b64encode(buffer.getvalue()).decode('utf-8')
+        plt.close(fig2)
+
+        return jsonify({
+            'pos_image_wordcloud': pos_image_wordcloud,
+            'neg_image_wordcloud': neg_image_wordcloud
+        })
+    
+    except Exception as e:
+        print("!! ERROR in /sentiment_wordcloud:", str(e))
+        return jsonify({'message': 'Error generating sentiment word clouds'}), 500
+
+
+
+
 
 if __name__ == '__main__':
     app.run(debug=True)
