@@ -99,20 +99,32 @@ Whatsapp Chat Sentiment Analysis
 #### Analysis Result
 ![Analysis Result](ExampleVisuals/AnalysisResult.png)
 
-#### Word Cloud
+<!-- #### Word Cloud
 ![Word Cloud](ExampleVisuals/Wordcloud.png)
 
 #### Emoji Usage
 ![Emoji Usage](ExampleVisuals/EmojiUsage.png)
 
-#### Sentiment Trend
-![Sentiment Trend](ExampleVisuals/SentimentTrend.png)
+#### Timeline
+![Timeline](ExampleVisuals/Timeline.png)
 
 #### Sentiment Trend
-![Timeline](ExampleVisuals/Timeline.png)
+![Sentiment Trend](ExampleVisuals/SentimentTrend.png)
 
 #### Positive Wordcloud
 ![Positive Wordcloud](ExampleVisuals/PositiveWordcloud.png)
 
 #### Negative Wordcloud
-![Negative Wordcloud](ExampleVisuals/NegativeWordcloud.png)
+![Negative Wordcloud](ExampleVisuals/NegativeWordcloud.png) -->
+
+<p float="left">
+  <img src="ExampleVisuals/Wordcloud.png" width="300" />
+  <img src="ExampleVisuals/EmojiUsage.png" width="300" />
+  <img src="ExampleVisuals/Timeline.png" width="300" />
+</p>
+
+<p float="left">
+  <img src="ExampleVisuals/SentimentTrend" width="300" />
+  <img src="ExampleVisuals/PositiveWordcloud" width="300" />
+  <img src="ExampleVisuals/NegativeWordcloud" width="300" />
+</p>
