@@ -84,29 +84,29 @@ python
 ```
 ## Screenshots
 
-Dashboard
+**Dashboard**
 ![App Screenshot](UI/image1.png)
 
-Whatsapp Chat Analysis
+**Whatsapp Chat Analysis**
 ![App Screenshot](UI/image2.png)
 
-Whatsapp Chat Sentiment Analysis
+**Whatsapp Chat Sentiment Analysis**
 ![App Screenshot](UI/image3.png)
 
 
 ## Example Visuals
 
-#### Analysis Result
+**Analysis Result**
 ![Analysis Result](ExampleVisuals/AnalysisResult.png)
 
-#### Word Cloud, Emoji Usage & Timeline
+**Word Cloud, Emoji Usage & Timeline**
 <p float="left">
   <img src="ExampleVisuals/Wordcloud.png" width="200" />
   <img src="ExampleVisuals/EmojiUsage.png" width="200" />
   <img src="ExampleVisuals/Timeline.png" width="200" />
 </p>
 
-#### Sentiment Trend, Positive Wordcloud & Negative Wordcloud
+**Sentiment Trend, Positive Wordcloud & Negative Wordcloud**
 <p float="left">
   <img src="ExampleVisuals/SentimentTrend.png" width="200" />
   <img src="ExampleVisuals/PositiveWordcloud.png" width="200" />
