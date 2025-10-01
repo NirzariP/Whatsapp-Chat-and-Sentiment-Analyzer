@@ -112,7 +112,7 @@ Whatsapp Chat Sentiment Analysis
 ![Timeline](ExampleVisuals/Timeline.png)
 
 #### Positive Wordcloud
-![Positive Wordcloud](ExampleVisuals/examples.png)
+![Positive Wordcloud](ExampleVisuals/PositiveWordcloud.png)
 
 #### Negative Wordcloud
-![Negative Wordcloud](ExampleVisuals/examples.png)
+![Negative Wordcloud](ExampleVisuals/NegativeWordcloud.png)
