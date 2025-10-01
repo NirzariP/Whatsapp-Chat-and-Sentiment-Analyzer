@@ -99,32 +99,16 @@ Whatsapp Chat Sentiment Analysis
 #### Analysis Result
 ![Analysis Result](ExampleVisuals/AnalysisResult.png)
 
-<!-- #### Word Cloud
-![Word Cloud](ExampleVisuals/Wordcloud.png)
-
-#### Emoji Usage
-![Emoji Usage](ExampleVisuals/EmojiUsage.png)
-
-#### Timeline
-![Timeline](ExampleVisuals/Timeline.png)
-
-#### Sentiment Trend
-![Sentiment Trend](ExampleVisuals/SentimentTrend.png)
-
-#### Positive Wordcloud
-![Positive Wordcloud](ExampleVisuals/PositiveWordcloud.png)
-
-#### Negative Wordcloud
-![Negative Wordcloud](ExampleVisuals/NegativeWordcloud.png) -->
-
+#### Word Cloud, Emoji Usage & Timeline
 <p float="left">
-  <img src="ExampleVisuals/Wordcloud.png" width="300" />
-  <img src="ExampleVisuals/EmojiUsage.png" width="300" />
-  <img src="ExampleVisuals/Timeline.png" width="300" />
+  <img src="ExampleVisuals/Wordcloud.png" width="200" />
+  <img src="ExampleVisuals/EmojiUsage.png" width="200" />
+  <img src="ExampleVisuals/Timeline.png" width="200" />
 </p>
 
+#### Sentiment Trend, Positive Wordcloud & Negative Wordcloud
 <p float="left">
-  <img src="ExampleVisuals/SentimentTrend" width="300" />
-  <img src="ExampleVisuals/PositiveWordcloud" width="300" />
-  <img src="ExampleVisuals/NegativeWordcloud" width="300" />
+  <img src="ExampleVisuals/SentimentTrend.png" width="200" />
+  <img src="ExampleVisuals/PositiveWordcloud.png" width="200" />
+  <img src="ExampleVisuals/NegativeWordcloud.png" width="200" />
 </p>
