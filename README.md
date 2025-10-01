@@ -82,7 +82,7 @@ python
 >>> import nltk
 >>> nltk.download('vader_lexicon')
 ```
-## Screenshots
+## UI
 
 **Dashboard**
 ![App Screenshot](UI/image1.png)
